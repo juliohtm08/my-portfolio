@@ -35,7 +35,9 @@ function Home() {
       >
         <Grid2 item xs={6} className="grid-item-style">
           <Item>
-            <h1>Hello, I'm Julio Henrique Tomoyuki Morizono</h1>
+            <Typography sx={{ fontSize: '2rem', fontWeight: 600 }}>
+              Hello, I'm Julio Henrique Tomoyuki Morizono👋
+            </Typography>
           </Item>
         </Grid2>
         <Grid2 item xs={6} className="grid-item-style">
