@@ -1,0 +1,24 @@
+.grid-item-style {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+  }
+  
+  .image-style {
+    height: 20rem; 
+    width: 20rem; 
+    aspect-ratio: 1/1; /* Garante que a imagem seja quadrada */
+    object-fit: cover; /* Mantém a proporção da imagem */
+    border-radius: 50%;
+    border: 5px solid var(--primary-color); 
+    max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+  }
+  
+
+  @media (max-width: 1129px) {
+    .image-style {
+      height: 15rem;
+      width: 15rem;
+    }
+  }
