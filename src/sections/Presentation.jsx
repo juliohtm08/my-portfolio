@@ -6,7 +6,6 @@ import '../styles/Presentation.css';
 
 function Presentation() {
   const Item = styled(Typography)(({ theme }) => ({
-    ...theme.typography.body2,
     padding: theme.spacing(0),
     color: 'var(--text-color)',
   }));
@@ -37,14 +36,14 @@ function Presentation() {
           <Item>
             <Typography
               sx={{
-                fontSize: {
-                  xs: '1.5rem',
-                  sm: '1rem',
-                  md: '1.8rem',
-                  lg: '2rem',
-                },
                 fontWeight: 600,
                 textAlign: { xs: 'center', md: 'left' },
+                '@media (max-width: 1660px)': {
+                  fontSize: '2rem',
+                },
+                '@media (max-width: 1128px)': {
+                  fontSize: '1.5rem',
+                },
               }}
             >
               Hello, I'm Julio Henrique Tomoyuki Morizono👋

@@ -1,11 +1,4 @@
-.grid-item-style {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; 
-  }
-  
-  .image-style {
+.image-style {
     height: 20rem; 
     width: 20rem; 
     aspect-ratio: 1/1; /* Garante que a imagem seja quadrada */
@@ -16,9 +9,16 @@
   }
   
 
-  @media (max-width: 1129px) {
+@media (max-width: 1129px) {
     .image-style {
-      height: 15rem;
-      width: 15rem;
+      height: 16rem;
+      width: 16rem;
     }
-  }
+}
+
+ @media (max-width: 859px) {
+    .image-style {
+      height: 14rem;
+      width: 14rem;
+    }
+}  

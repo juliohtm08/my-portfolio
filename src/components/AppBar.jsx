@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 // Defina os itens do menu
 const pages = ['Sobre mim', 'Skills', 'Projetos'];
 
-function ResponsiveAppBar() {
+function MyAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleCloseNavMenu = () => {
@@ -26,7 +26,7 @@ function ResponsiveAppBar() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: 'none', md: 'flex' },
+              display: { xs: 'flex', md: 'flex' },
               justifyContent: 'center',
             }}
           >
@@ -34,7 +34,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'var(--text-color)', display: 'block' }}
               >
                 {page}
               </Button>
@@ -46,4 +46,4 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;
+export default MyAppBar;
