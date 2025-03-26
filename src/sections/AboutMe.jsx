@@ -15,37 +15,48 @@ function AboutMe() {
     <Box
       sx={{
         flexGrow: '1',
-        height: '70vh',
+        height: '80vh',
         backgroundColor: 'var(--background2-color)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: { xs: 2, sm: 3, md: 4 },
       }}
     >
       <Grid2
         container
         spacing={{ xs: 2, sm: 4, md: 6 }}
         sx={{
-          width: '50%',
+          width: '55%',
           maxWidth: '1200px',
           height: 'auto', // Ocupa toda a altura do container
           display: 'flex',
           flexDirection: 'column', // Altera a direção do flex para coluna
           justifyContent: 'space-between', // Distribui o espaço entre os itens
           alignItems: 'center', // Centraliza horizontalmente
+          '@media (max-width: 600px)': {
+            width: '80%',
+          },
         }}
       >
-        {/* Item 1 - No topo */}
         <Grid2 item sx={{ marginTop: 2 }}>
           <Item>
-            <Typography variant="h4" sx={{ color: 'var(--primary-color)' }}>
+            <Typography
+              sx={{
+                color: 'var(--primary-color)',
+                typography: {
+                  xs: 'h6', // Em telas pequenas, usa h6
+                  sm: 'h6', // Em telas pequenas/médias, usa h5
+                  md: 'h5', // Em telas médias, usa h4
+                  lg: 'h4', // Em telas grandes, usa h3
+                  xl: 'h3', // Em telas muito grandes, usa h2
+                },
+              }}
+            >
               SOBRE MIM
             </Typography>
           </Item>
         </Grid2>
 
-        {/* Item 2 - Centralizado no meio */}
         <Grid2
           item
           sx={{
@@ -56,7 +67,7 @@ function AboutMe() {
             width: '100%',
           }}
         >
-          <Text>
+          <Text class="container-text-style">
             Meu nome é{' '}
             <span style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>
               Julio Henrique
@@ -67,12 +78,12 @@ function AboutMe() {
             <span style={{ fontWeight: 'bold', color: 'var(--primary-color)' }}>
               Desenvolvimento FullStack
             </span>
-            . Atualmente, busco uma oportunidade de estágio na área, onde possa
-            aplicar meus conhecimentos técnicos, contribuir para projetos
-            desafiadores e, ao mesmo tempo, ampliar minha experiência no mercado
-            de tecnologia. Meu objetivo é crescer profissionalmente, aprendendo
-            com equipes experientes e me tornando um desenvolvedor cada vez mais
-            capacitado e preparado para os desafios da área.
+            . Busco constantemente aprimorar minhas habilidades técnicas e
+            práticas, desenvolvendo soluções eficientes e escaláveis. Meu
+            objetivo é crescer profissionalmente, contribuindo para projetos
+            inovadores e aprendendo com equipes experientes, a fim de me tornar
+            um desenvolvedor altamente capacitado e preparado para os desafios
+            do setor.
           </Text>
         </Grid2>
       </Grid2>

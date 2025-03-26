@@ -12,14 +12,21 @@ function Text({ children }) {
         height: 'auto',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center', // Centraliza verticalmente o conteúdo
+        alignItems: 'center',
+        backgroundColor: '#002533',
       }}
     >
       <Typography
         sx={{
           textAlign: 'center',
           color: 'var(--text-color)',
-          fontSize: '1.2rem',
+          fontSize: {
+            xs: '0.8rem', // Em telas pequenas, usa h6
+            sm: '1rem', // Em telas pequenas/médias, usa h5
+            md: '1.1rem', // Em telas médias, usa h4
+            lg: '1.15rem', // Em telas grandes, usa h3
+            xl: '1.3rem', // Em telas muito grandes, usa h2
+          },
         }}
       >
         {children}
