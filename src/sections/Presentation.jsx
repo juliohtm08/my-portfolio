@@ -14,7 +14,7 @@ function Presentation() {
       sx={{
         flexGrow: 1,
         backgroundColor: 'var(--background-color)',
-        minHeight: '70vh',
+        minHeight: '80vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

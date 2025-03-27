@@ -4,6 +4,7 @@ import AboutMe from '../../sections/AboutMe';
 import { ThemeProvider } from '@mui/material';
 import theme from '../../theme';
 import MyAppBar from '../../components/AppBar';
+import Skills from '../../sections/Skills';
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <MyAppBar />
       <Presentation />
       <AboutMe />
+      <Skills />
     </ThemeProvider>
   );
 }

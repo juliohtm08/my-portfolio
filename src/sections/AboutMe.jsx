@@ -15,7 +15,7 @@ function AboutMe() {
     <Box
       sx={{
         flexGrow: '1',
-        height: '80vh',
+        height: '75vh',
         backgroundColor: 'var(--background2-color)',
         display: 'flex',
         justifyContent: 'center',
@@ -44,11 +44,11 @@ function AboutMe() {
               sx={{
                 color: 'var(--primary-color)',
                 typography: {
-                  xs: 'h6', // Em telas pequenas, usa h6
-                  sm: 'h6', // Em telas pequenas/médias, usa h5
-                  md: 'h5', // Em telas médias, usa h4
-                  lg: 'h4', // Em telas grandes, usa h3
-                  xl: 'h3', // Em telas muito grandes, usa h2
+                  xs: 'h6',
+                  sm: 'h6',
+                  md: 'h5',
+                  lg: 'h4',
+                  xl: 'h3',
                 },
               }}
             >
