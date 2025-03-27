@@ -1,3 +1,4 @@
+// src/components/Skills.jsx
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import { Grid2, Box, Paper, Typography } from '@mui/material';
@@ -9,18 +10,20 @@ import reactImg from '../assets/images/react.png';
 import typescriptImg from '../assets/images/typescript.png';
 import gitImg from '../assets/images/git.png';
 import sqlImg from '../assets/images/sql.png';
+import SkillModal from '../components/SkillModal';
 
 import '../styles/skills.css';
 
+// Mapeia as imagens para chaves que usaremos no modal
 const DevIcons = [
-  javascriptImg,
-  css3Img,
-  html5Img,
-  nodejsImg,
-  reactImg,
-  typescriptImg,
-  gitImg,
-  sqlImg,
+  { src: javascriptImg, key: 'javascript' },
+  { src: css3Img, key: 'css3' },
+  { src: html5Img, key: 'html5' },
+  { src: nodejsImg, key: 'nodejs' },
+  { src: reactImg, key: 'react' },
+  { src: typescriptImg, key: 'typescript' },
+  { src: gitImg, key: 'git' },
+  { src: sqlImg, key: 'sql' },
 ];
 
 const Item = styled(Typography)(({ theme }) => ({
@@ -35,21 +38,39 @@ const ItemImg = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
   textAlign: 'center',
   color: (theme.vars ?? theme).palette.text.secondary,
+  cursor: 'pointer', // Adiciona cursor pointer para indicar que é clicável
+  transition: 'transform 0.2s, box-shadow 0.2s',
+  '&:hover': {
+    transform: 'scale(1.05)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+  },
   ...theme.applyStyles('dark', {
     backgroundColor: '#1A2027',
   }),
 }));
 
 function Skills() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedSkill, setSelectedSkill] = React.useState('');
+
+  const handleOpen = (skillKey) => {
+    setSelectedSkill(skillKey);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box
       sx={{
         flexGrow: 1,
         height: '80vh',
         display: 'flex',
-        flexDirection: 'column', // Coloca os elementos em coluna
-        alignItems: 'center', // Centraliza horizontalmente
-        justifyContent: 'center', // Centraliza verticalmente
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: 'var(--background-color)',
       }}
     >
@@ -77,24 +98,29 @@ function Skills() {
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 10, md: 24 }}
       >
-        {DevIcons.map((src, index) => (
+        {DevIcons.map((icon, index) => (
           <Grid2
             key={index}
             size={{ xs: 2, sm: 4, md: 6 }}
             sx={{
               display: 'flex',
-              justifyContent: 'center', // Centraliza os itens horizontalmente
-              alignItems: 'center', // Centraliza os itens verticalmente
-              flexWrap: 'wrap', // Garante que os itens quebrem linha corretamente
-              maxWidth: '80%', // Define um tamanho máximo para o grid
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              maxWidth: '80%',
             }}
           >
-            <ItemImg className="style-dev-img">
-              <img src={src} alt={`DevIcons ${index + 1}`} width="100%" />
+            <ItemImg
+              className="style-dev-img"
+              onClick={() => handleOpen(icon.key)}
+            >
+              <img src={icon.src} alt={`${icon.key} icon`} width="100%" />
             </ItemImg>
           </Grid2>
         ))}
       </Grid2>
+
+      <SkillModal open={open} handleClose={handleClose} skill={selectedSkill} />
     </Box>
   );
 }
